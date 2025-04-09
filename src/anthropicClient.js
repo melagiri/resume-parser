@@ -82,6 +82,13 @@ async function parseResumeWithAnthropic(resumeText) {
       temperature: 0.1,
     });
 
+    // Log token usage
+    console.log('Token usage:');
+    console.log('  Input tokens:', message.usage.input_tokens);
+    console.log('  Output tokens:', message.usage.output_tokens);
+    console.log('  Total tokens:', message.usage.input_tokens + message.usage.output_tokens);
+    console.log('  Model used:', message.model);
+
     // Parse the JSON from the response
     const responseContent = message.content[0].text;
 
